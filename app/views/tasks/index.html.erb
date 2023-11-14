@@ -1,20 +1,19 @@
-<ul>
+<div class="container shadow p-3 mb-3 bg-body-tertiary rounded mt-4">
   <% @tasks.each do |task| %>
-    <li>
-      <div class="display">
-        <div>
-        <input type="checkbox" id="task" name="task" <%= task.completed ? 'checked' : '' %> />
-        <label for="task"><%= link_to task.title, task_path(task) %></label>
+    <div class="d-flex justify-content-between">
+      <div class="form-check text-decoration-none">
+        <%= task.completed ? "<i class='fas fa-check'></i>".html_safe : "<i class='fas fa-xmark'></i>".html_safe %>
+        <label class="form-check-label" for="task"><%= link_to task.title, task_path(task), class: 'text-dark' %></label>
       </div>
       <div class="img">
-        <%= link_to "X",
-        delete_path(task),
+        <%= link_to "<i class='fa fa-trash' aria-hidden='true'></i>".html_safe,
+        delete_path(task), class: 'text-dark',
         data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-      %>
+        %>
       </div>
-      </div>
-    </li>
+    </div>
   <% end %>
-</ul>
-
-<%= link_to 'Add a new task', tasks_new_path %>
+</div>
+<div class="text-center text-decoration-none">
+  <%= link_to '<i class="fas fa-plus"></i> Add a new task'.html_safe, tasks_new_path %>
+</div>

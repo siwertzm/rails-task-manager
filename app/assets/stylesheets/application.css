@@ -14,9 +14,43 @@
  *= require_self
  */
 
+ body{
+    background-image: url('https://wallpapers.com/images/hd/notebook-paper-background-0u9d9tcp6wlxb8ji.jpg');
+    height: 100vh;
+    background-position: center;
+    background-size: cover;
+ }
+
  .display{
     display: flex;
  }
  .img{
     padding-left: 10px;
+ }
+
+ .edit{
+    position: absolute;
+    right: 5px;
+    top: 5px;
+ }
+
+ .retour{
+    position: absolute;
+    left: 10px;
+    top: 10px;
+ }
+
+ .edit:hover{
+    color: #000000;
+    background-color: #ffffff;
+    border: 1px solid #000000;
+ }
+
+ .task{
+    position: relative;
+ }
+
+ .logo{
+    position: absolute;
+    right: 5px;
  }
