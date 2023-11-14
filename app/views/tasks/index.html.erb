@@ -1,9 +1,17 @@
 <ul>
   <% @tasks.each do |task| %>
     <li>
-      <div>
+      <div class="display">
+        <div>
         <input type="checkbox" id="task" name="task" <%= task.completed ? 'checked' : '' %> />
         <label for="task"><%= link_to task.title, task_path(task) %></label>
+      </div>
+      <div class="img">
+        <%= link_to "X",
+        delete_path(task),
+        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+      %>
+      </div>
       </div>
     </li>
   <% end %>
